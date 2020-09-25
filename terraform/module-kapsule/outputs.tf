@@ -20,17 +20,17 @@ output "control_plane_endpoint" {
 
 output "control_plane_host" {
   description = "Kapsule Cluster URL of the Kubernetes API server."
-  value       = scaleway_k8s_cluster_beta.cluster.kubeconfig.host 
+  value       = scaleway_k8s_cluster_beta.cluster.kubeconfig[0].host 
 }
 
 output "control_plane_ca" {
   description = "Kapsule Cluster CA certificate of the Kubernetes API server."
-  value       = scaleway_k8s_cluster_beta.cluster.kubeconfig.cluster_ca_certificate 
+  value       = scaleway_k8s_cluster_beta.cluster.kubeconfig[0].cluster_ca_certificate 
 }
 
 output "control_plane_token" {
   description = "Kapsule Cluster token to connect to the Kubernetes API server."
-  value       = scaleway_k8s_cluster_beta.cluster.kubeconfig.token 
+  value       = scaleway_k8s_cluster_beta.cluster.kubeconfig[0].token 
 }
 
 output "control_plane_status" {
@@ -50,8 +50,8 @@ locals {
 apiVersion: v1
 clusters:
 - cluster:
-    server: ${scaleway_k8s_cluster_beta.cluster.kubeconfig.host}
-    certificate-authority-data: ${caleway_k8s_cluster_beta.cluster.kubeconfig.cluster_ca_certificate}
+    server: ${scaleway_k8s_cluster_beta.cluster.kubeconfig[0].host}
+    certificate-authority-data: ${scaleway_k8s_cluster_beta.cluster.kubeconfig[0].cluster_ca_certificate}
   name: ${var.customer}-kapsule-${var.cluster_name}
 contexts:
 - context:
@@ -63,7 +63,7 @@ kind: Config
 preferences: {}
 users:
 - name: ${var.customer}-scw-${var.cluster_name}
-  token: ${scaleway_k8s_cluster_beta.cluster.kubeconfig.token }
+  token: ${scaleway_k8s_cluster_beta.cluster.kubeconfig[0].token }
 KUBECONFIG
 }
 
@@ -74,5 +74,5 @@ output "kubeconfig" {
 
 output "raw_kubeconfig" {
   description = "Kubernetes config to connect to the Kapsule Cluster."
-  value       = scaleway_k8s_cluster_beta.cluster.kubeconfig.config_file
+  value       = scaleway_k8s_cluster_beta.cluster.kubeconfig[0].config_file
 }

@@ -48,9 +48,6 @@ module "kapsule" {
   #. auto_upgrade (optional): true
   #+ Set to `true` to enable Kubernetes patch version auto upgrades. Important: When enabling auto upgrades, the `cluster_version` variable take a minor version like x.y (ie 1.18).
 
-  #. autoscaling (optional): false
-  #+ Set to `true` to enable the Kubernetes cluster autoscaler.
-
   ###
   # Required (should probably not be touched)
   ###

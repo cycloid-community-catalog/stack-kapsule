@@ -8,6 +8,6 @@
 .vault-password
 
 # Testing files
-terraform/eks.tf
+terraform/kapsule.tf
 terraform/terraform.tfvars
 terraform/tmp_backend.tf

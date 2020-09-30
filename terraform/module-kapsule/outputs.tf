@@ -63,16 +63,12 @@ kind: Config
 preferences: {}
 users:
 - name: ${var.customer}-scw-${var.cluster_name}
-  token: ${scaleway_k8s_cluster_beta.cluster.kubeconfig[0].token }
+  user:
+    token: ${scaleway_k8s_cluster_beta.cluster.kubeconfig[0].token }
 KUBECONFIG
 }
 
 output "kubeconfig" {
   description = "Kubernetes config to connect to the Kapsule Cluster."
   value       = local.kubeconfig
-}
-
-output "raw_kubeconfig" {
-  description = "Kubernetes config to connect to the Kapsule Cluster."
-  value       = scaleway_k8s_cluster_beta.cluster.kubeconfig[0].config_file
 }

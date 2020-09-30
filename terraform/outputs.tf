@@ -46,8 +46,3 @@ output "kubeconfig" {
   description = "Kubernetes config to connect to the Kapsule cluster."
   value       = module.kapsule.kubeconfig
 }
-
-output "raw_kubeconfig" {
-  description = "Kubernetes config to connect to the Kapsule cluster."
-  value       = module.kapsule.raw_kubeconfig
-}

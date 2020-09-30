@@ -8,9 +8,9 @@
 #+ Scaleway access key for Terraform. See [here](https://console.scaleway.com/account/organization/credentials).
 scw_access_key: ((scaleway.access_key))
 
-#. scw_organization_id (required): ((scaleway.secret_key))
+#. scw_organization_id (required): ((scaleway.organization_id))
 #+ Scaleway secret key for Terraform. See [here](https://console.scaleway.com/account/organization/credentials).
-scw_organization_id: ((scaleway.secret_key))
+scw_organization_id: ((scaleway.organization_id))
 
 #. scw_secret_key (required): ((scaleway.secret_key))
 #+ Scaleway organization ID for Terraform. See [here](https://console.scaleway.com/account/organization/credentials).

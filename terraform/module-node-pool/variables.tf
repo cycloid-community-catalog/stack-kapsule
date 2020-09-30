@@ -122,5 +122,5 @@ variable placement_group_id {
 variable wait_for_pool_ready {
   type        = bool
   description = "Whether to wait for the pool to be ready."
-  default     = false
+  default     = true
 }

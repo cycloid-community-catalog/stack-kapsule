@@ -1,4 +1,5 @@
 ---
+version: '2'
 # Configuration of the Cycloid stack
 name: 'Scaleway Kapsule'
 canonical: 'stack-kapsule'
@@ -17,16 +18,34 @@ technologies:
     version: 1.19
 
 config:
-  # Configuration of the CI pipeline
-  pipeline:
+  cluster:
+    name: 'Cluster'
+    description: 'Kapsule cluster deployment + node pools.'
+    # Configuration of the CI pipeline
     pipeline:
-      path: 'pipeline/pipeline.yml'
-    variables:
-      path: 'pipeline/variables.sample.yml'
-      destination: '($ project $)/pipeline/($ environment $)/variables.yml'
+      pipeline:
+        path: 'pipeline/pipeline.yml'
+      variables:
+        path: 'pipeline/variables.sample.yml'
+        destination: '($ project $)/pipeline/($ environment $)/variables.yml'
+    # Configuration of terraform to setup the infrastructure
+    terraform:
+      kapsule:
+        path: 'terraform/kapsule.tf.sample'
+        destination: '($ project $)/terraform/($ environment $)/kapsule.tf'
 
-  # Configuration of terraform to setup the infrastructure
-  terraform:
-    kapsule:
-      path: 'terraform/kapsule.tf.sample'
-      destination: '($ project $)/terraform/($ environment $)/kapsule.tf'
+  nodes:
+    name: 'Node pool'
+    description: 'Kapsule node pools deployment to an existing cluster.'
+    # Configuration of the CI pipeline
+    pipeline:
+      pipeline:
+        path: 'pipeline/pipeline.yml'
+      variables:
+        path: 'pipeline/variables.sample.yml'
+        destination: '($ project $)/pipeline/($ environment $)/variables.yml'
+    # Configuration of terraform to setup the infrastructure
+    terraform:
+      kapsule:
+        path: 'terraform/node_pool.tf.sample'
+        destination: '($ project $)/terraform/($ environment $)/node_pool.tf'

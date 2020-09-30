@@ -31,6 +31,21 @@ output cluster_version {
   value       = module.kapsule.cluster_version
 }
 
+output cluster_wildcard_dns {
+  description = "The DNS wildcard that points to all ready nodes."
+  value       = module.kapsule.cluster_wildcard_dns
+}
+
+output cluster_status {
+  description = "Kapsule Cluster status of the Kubernetes cluster."
+  value       = module.kapsule.cluster_status
+}
+
+output cluster_upgrade_available {
+  description = "Set to `true` if a newer Kubernetes version is available."
+  value       = module.kapsule.cluster_upgrade_available
+}
+
 output control_plane_endpoint {
   description = "Kapsule Cluster URL of the Kubernetes API server."
   value       = module.kapsule.control_plane_endpoint
@@ -49,11 +64,6 @@ output control_plane_ca {
 output control_plane_token {
   description = "Kapsule Cluster token to connect to the Kubernetes API server."
   value       = module.kapsule.control_plane_token
-}
-
-output control_plane_status {
-  description = "Kapsule Cluster status of the Kubernetes cluster."
-  value       = module.kapsule.control_plane_status
 }
 
 output kubeconfig {

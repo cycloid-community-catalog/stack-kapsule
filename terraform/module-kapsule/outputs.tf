@@ -13,6 +13,21 @@ output cluster_version {
   value       = scaleway_k8s_cluster_beta.cluster.version
 }
 
+output cluster_wildcard_dns {
+  description = "The DNS wildcard that points to all ready nodes."
+  value       = scaleway_k8s_cluster_beta.cluster.wildcard_dns 
+}
+
+output cluster_status {
+  description = "Kapsule Cluster status of the Kubernetes cluster."
+  value       = scaleway_k8s_cluster_beta.cluster.status 
+}
+
+output cluster_upgrade_available {
+  description = "Set to `true` if a newer Kubernetes version is available."
+  value       = scaleway_k8s_cluster_beta.cluster.upgrade_available 
+}
+
 output control_plane_endpoint {
   description = "Kapsule Cluster API endpoint."
   value       = scaleway_k8s_cluster_beta.cluster.apiserver_url
@@ -31,16 +46,6 @@ output control_plane_ca {
 output control_plane_token {
   description = "Kapsule Cluster token to connect to the Kubernetes API server."
   value       = scaleway_k8s_cluster_beta.cluster.kubeconfig[0].token 
-}
-
-output control_plane_status {
-  description = "Kapsule Cluster status of the Kubernetes cluster."
-  value       = scaleway_k8s_cluster_beta.cluster.status 
-}
-
-output control_plane_upgrade_available {
-  description = "Set to `true` if a newer Kubernetes version is available."
-  value       = scaleway_k8s_cluster_beta.cluster.upgrade_available 
 }
 
 locals {

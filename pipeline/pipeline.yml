@@ -64,6 +64,9 @@ resources:
       SCW_ACCESS_KEY: ((scw_access_key))
       SCW_DEFAULT_REGION: ((scw_default_region))
       SCW_SECRET_KEY: ((scw_secret_key))
+      # required for the s3 backend to work when using external scaleway terraform remote state references
+      AWS_ACCESS_KEY_ID: ((scw_access_key))
+      AWS_SECRET_ACCESS_KEY: ((scw_secret_key))
 
 # The Terraform stack (will be merged with the config)
 - name: git_stack-terraform

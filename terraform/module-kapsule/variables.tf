@@ -42,7 +42,7 @@ locals {
     "cycloid.io=true",
     "env=${var.env}",
     "project=${var.project}",
-    "client=${var.customer}",
+    "customer=${var.customer}",
   ]
   merged_tags = compact(concat(local.standard_tags, var.extra_tags))
 }

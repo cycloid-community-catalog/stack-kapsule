@@ -14,7 +14,6 @@ resource "scaleway_k8s_cluster_beta" "cluster" {
   admission_plugins = var.admission_plugins
 
   tags = compact(concat(local.merged_tags, [
-    "name=${var.project}-kapsule-${var.env}-${var.scw_zone}",
     "role=control-plane"
   ]))
 

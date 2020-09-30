@@ -18,7 +18,6 @@ resource "scaleway_k8s_pool_beta" "nodes" {
   wait_for_pool_ready = var.wait_for_pool_ready
 
   tags = compact(concat(local.merged_tags, [
-    "name=${var.project}-nodes-${var.env}-${var.node_pool_name}",
     "role=node-pool"
   ]))
 }

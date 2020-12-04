@@ -38,7 +38,7 @@ module "kapsule" {
   #+ The Container Network Interface (CNI) for the Kubernetes cluster (either `cilium`, `calico`, `weave` or `flannel`).
 
   #. ingress (optional): nginx
-  #+ The ingress controller to be deployed on the Kubernetes cluster (either `nginx`, `traefik` or `traefik2`).
+  #+ The ingress controller to be deployed on the Kubernetes cluster (either `nginx`, `traefik`, `traefik2` or `none`).
 
   #. enable_dashboard (optional): true
   #+ Enables the Kubernetes dashboard for the Kubernetes cluster.
